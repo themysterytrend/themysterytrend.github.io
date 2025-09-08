@@ -43,13 +43,16 @@
         doDat('.png');
 
         i++;
+
+        if(i >= 10)
+          i = 1;
       }
 
       function doDat(extension) {
         let img = document.createElement('img');
           img.src = '/' + i + extension;
 
-          img.onload = function() {t();};
+          img.addEventListener("load", t);
         
           document.body.insertBefore(img, document.getElementsByTagName('script')[0]);
       }
