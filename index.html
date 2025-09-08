@@ -36,13 +36,22 @@
     <br>
 
     <script>
+      let i = 4;
+      
       function t () {
-        alert('error!');
-        let img = document.createElement('img');
-        img.src = '/4.jpg';
+        doDat('.jpg');
+        doDat('.png');
 
-        document.body.insertBefore(img, document.getElementsByTagName('script')[0]);
+        i++;
+      }
+
+      function doDat(extension) {
+        let img = document.createElement('img');
+          img.src = '/' + i + extension;
+
+          img.onload = function() {t();};
         
+          document.body.insertBefore(img, document.getElementsByTagName('script')[0]);
       }
     </script>
     
