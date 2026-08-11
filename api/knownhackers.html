@@ -1,5 +1,6 @@
 <html>
   <body>
+    <p id='text'></p>
     <script>
       function loadFile(filePath) {
         var result = null;
@@ -16,11 +17,27 @@
       var url = new URL(window.location);
       var uuid = url.searchParams.get("uuid");
 
-      var file = loadFile("/api/hackerdb");
+      var hackers = loadFile("/api/hackerdb");
 
-      console.log(file)
+      if(uuid === null) {
+        document.getElementById('text').textContent = hackers;
+        console.log(hackers);
+        return;
+      }
+
+      var uuidList = hackers.split("\n");
       
-      console.log(uuid);
+      for(var i = 0; i < uuidList.length; i++) {
+        if(uuidList[i] === uuid) {
+          document.getElementById('text').textContent('true');
+          console.log('true');
+          return;
+        }
+      }
+
+      document.getElementById('text').textContent('false');
+      console.log('false');
+      
     </script>
   </body>  
 </html>
