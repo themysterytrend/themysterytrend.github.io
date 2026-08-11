@@ -30,13 +30,13 @@
         
         for(var i = 0; i < uuidList.length; i++) {
           if(uuidList[i] === uuid) {
-            document.getElementById('text').textContent('true');
+            document.getElementById('text').textContent = 'true';
             console.log('true');
             return;
           }
         }
   
-        document.getElementById('text').textContent('false');
+        document.getElementById('text').textContent = 'false';
         console.log('false');
       }
 
