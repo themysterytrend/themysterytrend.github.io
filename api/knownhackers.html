@@ -19,24 +19,30 @@
 
       var hackers = loadFile("/api/hackerdb");
 
-      if(uuid === null) {
-        document.getElementById('text').textContent = hackers;
-        console.log(hackers);
-        return;
-      }
-
-      var uuidList = hackers.split("\n");
-      
-      for(var i = 0; i < uuidList.length; i++) {
-        if(uuidList[i] === uuid) {
-          document.getElementById('text').textContent('true');
-          console.log('true');
+      function run() {
+        if(uuid === null) {
+          document.getElementById('text').textContent = hackers;
+          console.log(hackers);
           return;
         }
+  
+        var uuidList = hackers.split("\n");
+        
+        for(var i = 0; i < uuidList.length; i++) {
+          if(uuidList[i] === uuid) {
+            document.getElementById('text').textContent('true');
+            console.log('true');
+            return;
+          }
+        }
+  
+        document.getElementById('text').textContent('false');
+        console.log('false');
       }
 
-      document.getElementById('text').textContent('false');
-      console.log('false');
+      run();
+      
+      
       
     </script>
   </body>  
