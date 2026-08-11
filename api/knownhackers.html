@@ -1,8 +1,24 @@
 <html>
   <body>
     <script>
+      function loadFile(filePath) {
+        var result = null;
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("GET", filePath, false);
+        xmlhttp.send();
+        if (xmlhttp.status==200) {
+          result = xmlhttp.responseText;
+        }
+        return result;
+      }
+    </script>
+    <script>
       var url = new URL(window.location);
       var uuid = url.searchParams.get("uuid");
+
+      var file = loadFile("../hackerdb");
+
+      console.log(file)
       
       console.log(uuid);
     </script>
